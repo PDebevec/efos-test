@@ -54,7 +54,9 @@ pub fn main() !void {
     const allocator = std.heap.page_allocator;
     var numbers = [8]i32{ 8, 2, 17, 3, 12, 1, 8, 7 }; // podane številke v tabeli
 
+    std.debug.print("{any}\n", .{numbers});
     sortValues(&numbers); //najprej sortiramo
+    std.debug.print("{any}\n", .{numbers});
     //std.mem.sort(i32, &numbers, {}, std.sort.desc(i32));
 
     // shranimo v datoteko
@@ -71,7 +73,9 @@ pub fn main() !void {
         return;
     };
 
+    std.debug.print("{any}\n", .{array});
     sortValues(&array);
+    std.debug.print("{any}\n", .{array});
     //std.mem.sort(i32, &array, {}, std.sort.desc(i32));
 
     writeToFile(&allocator, &array, "rezultat.txt", true) catch |err| {
